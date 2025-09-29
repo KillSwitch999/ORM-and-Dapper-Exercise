@@ -11,7 +11,7 @@ public class DapperDepartmentRepository : IDepartmentRepository
     //Constructor
     public DapperDepartmentRepository(IDbConnection connection)
     {
-        _connection = connection
+        _connection = connection;
     }
 
     public IEnumerable<Department> GetAllDepartments()
@@ -21,7 +21,7 @@ public class DapperDepartmentRepository : IDepartmentRepository
 
     public void InsertDepartment(string newDepartmentName)
     {
-        _connection.Execute("ISERT INTO Departments (Name) VALUES (@departmentName);",
+        _connection.Execute("INSERT INTO Departments (Name) VALUES (@departmentName);",
             new { departmentName = newDepartmentName });
     }
 }
